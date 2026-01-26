@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>VANTA FIT™</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+  --bg:#0a0a0a;--panel:#141414;--border:#222;
+  --text:#fff;--muted:#9a9a9a;--accent:#fff;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui}
+button{cursor:pointer}
+
+nav{
+  position:sticky;top:0;z-index:999;
+  display:flex;justify-content:space-between;
+  padding:18px 24px;border-bottom:1px solid var(--border);
+  background:#000;
+}
+nav button{border:1px solid #fff;background:transparent;color:#fff;padding:8px 14px}
+
+section{padding:80px 24px;max-width:1200px;margin:auto}
+.hidden{display:none}
+
+.grid{display:grid;gap:24px}
+.grid-2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+
+.card{background:var(--panel);border:1px solid var(--border);padding:24px}
+.card img{width:100%;border:1px solid var(--border)}
+
+.price{border:2px solid #fff;text-align:center;padding:30px}
+.price h2{margin:0}
+
+input,textarea{
+  width:100%;padding:10px;background:#000;border:1px solid #333;color:#fff
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <strong>VANTA FIT™</strong>
+  <div>
+    <button onclick="loginOwner()">Owner Login</button>
+    <button onclick="loginDemo()">Demo Buyer</button>
+  </div>
+</nav>
+
+<!-- LANDING -->
+<section id="landing">
+  <h1>Train Smarter. Eat Cleaner. Track Everything.</h1>
+
+  <div class="grid grid-2">
+    <img src="https://raw.githubusercontent.com/Trustin326/Vanta-Fit/main/assets/img/vanta_1_before.png">
+    <img src="https://raw.githubusercontent.com/Trustin326/Vanta-Fit/main/assets/img/vanta_2_after.png">
+  </div>
+
+  <h2>Features</h2>
+  <div class="grid grid-3">
+    <img src="https://raw.githubusercontent.com/Trustin326/Vanta-Fit/main/assets/img/feature-meals-nutrition.jpg">
+    <img src="https://raw.githubusercontent.com/Trustin326/Vanta-Fit/main/assets/img/feature-workout-logger.jpg">
+    <img src="https://raw.githubusercontent.com/Trustin326/Vanta-Fit/main/assets/img/feature-coach-chat.jpg">
+  </div>
+
+  <h2>Pricing</h2>
+  <div class="grid grid-3">
+    <div class="price"><h2>$19</h2><p>Starter</p><button>Stripe Link</button></div>
+    <div class="price"><h2>$39</h2><p>Pro</p><button>Stripe Link</button></div>
+    <div class="price"><h2>$79</h2><p>Elite</p><button>Stripe Link</button></div>
+  </div>
+</section>
+
+<!-- APP -->
+<section id="app" class="hidden">
+  <h2 id="roleLabel"></h2>
+
+  <div class="grid grid-3">
+    <div class="card"><h3>Dashboard</h3><p>Stats + goals</p></div>
+    <div class="card"><h3>Meals</h3><input placeholder="Log meal"></div>
+    <div class="card"><h3>Workouts</h3><input placeholder="Log workout"></div>
+    <div class="card"><h3>Coach Chat</h3><textarea placeholder="Message coach"></textarea></div>
+    <div class="card"><h3>Progress</h3><p>Photos + charts</p></div>
+    <div class="card" id="analytics" class="hidden"><h3>Analytics</h3><p>Owner-only stats</p></div>
+  </div>
+</section>
+
+<script>
+function loginOwner(){
+  localStorage.setItem("role","owner");
+  loadApp();
+}
+function loginDemo(){
+  localStorage.setItem("role","demo");
+  loadApp();
+}
+function loadApp(){
+  landing.classList.add("hidden");
+  app.classList.remove("hidden");
+  roleLabel.innerText = localStorage.role === "owner" ? "OWNER DASHBOARD" : "DEMO BUYER";
+  if(localStorage.role === "owner") analytics.style.display="block";
+}
+</script>
+
+</body>
+</html>
