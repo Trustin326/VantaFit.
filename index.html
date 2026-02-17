@@ -2,210 +2,211 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>VANTA FIT™ — Train Smarter</title>
+  <title>VANTA FIT™ — Elite Fitness & Nutrition Platform</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="VANTA FIT™ is a premium fitness and nutrition platform for meal planning, workouts, coaching, and progress tracking." />
 
   <style>
     :root {
-      --bg:#0a0a0a;
-      --panel:#141414;
-      --border:#222;
-      --text:#ffffff;
-      --muted:#9a9a9a;
+      --bg: #0a0a0a;
+      --panel: #141414;
+      --border: #222;
+      --text: #ffffff;
+      --muted: #9a9a9a;
+      --accent: #ffffff;
     }
 
-    * { box-sizing:border-box; }
+    * { box-sizing: border-box; }
 
     body {
-      margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"Inter",system-ui,sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.6;
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
 
-    a { text-decoration:none; color:inherit; }
+    a { color: inherit; text-decoration: none; }
 
     .container {
-      max-width:1200px;
-      margin:auto;
-      padding:80px 24px;
+      max-width: 1200px;
+      margin: auto;
+      padding: 80px 24px;
     }
 
     /* NAV */
     nav {
-      border-bottom:1px solid var(--border);
-      padding:20px 24px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(10,10,10,.9);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 24px;
+      max-width: 1200px;
+      margin: auto;
     }
 
     .brand {
-      font-weight:800;
-      letter-spacing:.12em;
+      font-weight: 800;
+      letter-spacing: .08em;
     }
 
-    .nav-actions a {
-      margin-left:16px;
-      padding:10px 22px;
-      border:1px solid #fff;
-      font-size:.85rem;
+    .nav-links a {
+      margin-left: 24px;
+      font-size: .9rem;
+      color: var(--muted);
     }
 
-    .nav-actions a:hover {
-      background:#fff;
-      color:#000;
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      border: 1px solid var(--accent);
+      font-weight: 600;
+      letter-spacing: .05em;
+      transition: .25s;
+    }
+
+    .btn:hover {
+      background: var(--accent);
+      color: #000;
     }
 
     /* HERO */
     .hero {
-      text-align:center;
-      padding-top:60px;
+      text-align: center;
+      padding-top: 120px;
     }
 
     .hero h1 {
-      font-size:clamp(2.8rem,6vw,4rem);
-      margin-bottom:16px;
-      letter-spacing:-.02em;
+      font-size: clamp(2.8rem, 6vw, 4.2rem);
+      letter-spacing: -.02em;
+      margin-bottom: 20px;
     }
 
     .hero p {
-      max-width:720px;
-      margin:0 auto 40px;
-      color:var(--muted);
-      font-size:1.15rem;
+      max-width: 720px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 1.15rem;
     }
 
-    /* BEFORE / AFTER */
-    .before-after {
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px;
-      margin-top:60px;
+    .hero-actions {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
-    .image-box {
-      height:360px;
-      background:#141414;
-      border:2px dashed var(--border);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:var(--muted);
-      font-size:.9rem;
-    }
-
-    .statement {
-      text-align:center;
-      font-weight:800;
-      font-size:1.6rem;
-      letter-spacing:.05em;
-      margin-top:16px;
-    }
-
-    /* FEATURES */
+    /* SECTIONS */
     .section-title {
-      text-align:center;
-      margin-bottom:60px;
+      text-align: center;
+      margin-bottom: 60px;
     }
 
     .section-title h2 {
-      font-size:2.4rem;
-      margin-bottom:10px;
+      font-size: 2.4rem;
+      margin-bottom: 10px;
     }
 
     .section-title p {
-      color:var(--muted);
-      max-width:640px;
-      margin:auto;
+      color: var(--muted);
+      max-width: 640px;
+      margin: auto;
     }
 
-    .features {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:24px;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
     }
 
     .card {
-      background:var(--panel);
-      border:1px solid var(--border);
-      padding:30px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 30px;
+      transition: .25s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
     }
 
     .card h3 {
-      margin-top:0;
-      margin-bottom:10px;
+      margin-top: 0;
+      margin-bottom: 12px;
     }
 
     .card p {
-      color:var(--muted);
-      font-size:.95rem;
+      color: var(--muted);
+      font-size: .95rem;
     }
 
-    /* IMAGE SECTIONS */
-    .image-section {
-      margin-top:80px;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px;
-      align-items:center;
+    /* COACH AREA */
+    .coach {
+      background: linear-gradient(180deg, #0a0a0a, #111);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
     }
 
-    .image-section.reverse {
-      grid-template-columns:1fr 1fr;
-      direction:rtl;
+    .coach-box {
+      max-width: 760px;
+      margin: auto;
+      text-align: center;
+      border: 1px dashed var(--border);
+      padding: 50px;
+      color: var(--muted);
     }
 
-    .image-section.reverse > * {
-      direction:ltr;
+    /* PRICING */
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
     }
 
-    .image-large {
-      height:300px;
-      background:#141414;
-      border:2px dashed var(--border);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:var(--muted);
+    .price-card {
+      border: 1px solid var(--border);
+      padding: 40px;
+      background: var(--panel);
+      text-align: center;
     }
 
-    /* CTA */
-    .cta {
-      text-align:center;
-      margin-top:120px;
-      padding:80px 24px;
-      border-top:1px solid var(--border);
+    .price-card h3 {
+      margin-bottom: 10px;
     }
 
-    .cta a {
-      display:inline-block;
-      margin-top:24px;
-      padding:16px 36px;
-      border:1px solid #fff;
-      font-weight:700;
-      letter-spacing:.08em;
+    .price {
+      font-size: 2.6rem;
+      margin: 20px 0;
     }
 
-    .cta a:hover {
-      background:#fff;
-      color:#000;
+    .price-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 30px 0;
     }
 
+    .price-card li {
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    /* FOOTER */
     footer {
-      text-align:center;
-      padding:40px 24px;
-      color:var(--muted);
-      font-size:.85rem;
-      border-top:1px solid var(--border);
-    }
-
-    @media(max-width:768px){
-      .before-after,
-      .image-section {
-        grid-template-columns:1fr;
-      }
+      border-top: 1px solid var(--border);
+      padding: 40px 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: .85rem;
     }
   </style>
 </head>
@@ -213,100 +214,127 @@
 <body>
 
 <nav>
-  <div class="brand">VANTA FIT™</div>
-  <div class="nav-actions">
-    <a href="login.html">Login</a>
-    <a href="signup.html">Get Started</a>
+  <div class="nav-inner">
+    <div class="brand">VANTA FIT™</div>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#coach">Coach</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#login">Login</a>
+    </div>
   </div>
 </nav>
 
 <section class="hero container">
   <h1>Train Smarter.<br>Eat Cleaner.<br>Track Everything.</h1>
   <p>
-    A premium fitness & nutrition platform designed for real results —
-    personalized workouts, smart meal planning, progress tracking,
-    and direct coach access.
+    A premium fitness & nutrition platform designed for serious results.
+    Personalized workouts, smart meal planning, barcode food scanning,
+    real coach access, and progress tracking — all in one luxury experience.
   </p>
 
-  <!-- BEFORE / AFTER IMAGES -->
-  <div class="before-after">
-    <div>
-      <div class="image-box">Before Image</div>
-      <div class="statement">DISCIPLINE BUILDS RESULTS</div>
-    </div>
-    <div>
-      <div class="image-box">After Image</div>
-      <div class="statement">CONSISTENCY CHANGES EVERYTHING</div>
-    </div>
+  <div class="hero-actions">
+    <a class="btn" href="#pricing">START FREE TRIAL</a>
+    <a class="btn" href="#features">VIEW FEATURES</a>
   </div>
 </section>
 
-<section class="container">
+<section id="features" class="container">
   <div class="section-title">
-    <h2>Everything You Need — One Platform</h2>
-    <p>Replace multiple apps with one elite fitness system.</p>
+    <h2>Everything You Need. Nothing You Don’t.</h2>
+    <p>Built to replace five apps with one elite platform.</p>
   </div>
 
-  <div class="features">
+  <div class="grid">
     <div class="card">
       <h3>Smart Nutrition</h3>
-      <p>Track calories & carbs, scan food labels, and follow goal-based meal plans.</p>
+      <p>Automatic calorie & carb calculation, barcode food scanning, meal logging, and macro tracking.</p>
     </div>
+
     <div class="card">
-      <h3>Workout Logging</h3>
-      <p>Log sets, reps, weight, and track performance over time.</p>
+      <h3>Meal Planning</h3>
+      <p>Personalized weekly meal plans, coach-approved options, and purchasable premium plans.</p>
     </div>
+
+    <div class="card">
+      <h3>Workout Engine</h3>
+      <p>Tailored workout programs with logging, progression tracking, and performance insights.</p>
+    </div>
+
     <div class="card">
       <h3>Progress Tracking</h3>
-      <p>Upload progress photos, monitor metrics, and visualize results.</p>
+      <p>Upload progress photos, track goals, monitor streaks, and unlock achievement badges.</p>
     </div>
+
     <div class="card">
-      <h3>Coach Access</h3>
-      <p>Message your coach directly for accountability and guidance.</p>
+      <h3>Coach Messaging</h3>
+      <p>Chat directly with your coach for form checks, nutrition feedback, and accountability.</p>
+    </div>
+
+    <div class="card">
+      <h3>Fitness Marketplace</h3>
+      <p>Shop equipment, supplements, and digital programs directly inside the platform.</p>
     </div>
   </div>
 </section>
 
-<!-- IMAGE SLOT 3 -->
-<section class="container image-section">
-  <div class="image-large">Meals & Nutrition Screenshot</div>
-  <div>
-    <h2>Fuel Your Body With Precision</h2>
-    <p class="muted">
-      Personalized meal planning, barcode scanning, and macro tracking
-      designed around your goals.
+<section id="coach" class="coach container">
+  <div class="section-title">
+    <h2>From Your Coach</h2>
+    <p>Exclusive guidance, motivation, and education.</p>
+  </div>
+
+  <div class="coach-box">
+    <p>
+      🔒 Coach Content Area<br><br>
+      This section is reserved for coach posts, announcements, challenges,
+      transformation highlights, and weekly guidance.
     </p>
   </div>
 </section>
 
-<!-- IMAGE SLOT 4 -->
-<section class="container image-section reverse">
-  <div class="image-large">Workout Logger Screenshot</div>
-  <div>
-    <h2>Train With Purpose</h2>
-    <p class="muted">
-      Structured workouts, real tracking, and visible progression
-      that keeps you consistent.
-    </p>
+<section id="pricing" class="container">
+  <div class="section-title">
+    <h2>Simple. Powerful. Transparent.</h2>
+    <p>Choose the level of access that matches your ambition.</p>
   </div>
-</section>
 
-<!-- IMAGE SLOT 5 -->
-<section class="container image-section">
-  <div class="image-large">Coach Chat Screenshot</div>
-  <div>
-    <h2>Real Coaching. Real Accountability.</h2>
-    <p class="muted">
-      Direct access to your coach for feedback, motivation,
-      and personalized adjustments.
-    </p>
+  <div class="pricing">
+    <div class="price-card">
+      <h3>Starter</h3>
+      <div class="price">FREE</div>
+      <ul>
+        <li>Calorie & carb tracking</li>
+        <li>Workout logging</li>
+        <li>Basic meal plans</li>
+      </ul>
+      <a class="btn" href="#">Get Started</a>
+    </div>
+
+    <div class="price-card">
+      <h3>Pro</h3>
+      <div class="price">$29/mo</div>
+      <ul>
+        <li>Barcode scanning</li>
+        <li>Personalized meal plans</li>
+        <li>Full workout library</li>
+        <li>Progress photos & badges</li>
+      </ul>
+      <a class="btn" href="#">Start Pro</a>
+    </div>
+
+    <div class="price-card">
+      <h3>Elite Coaching</h3>
+      <div class="price">$79/mo</div>
+      <ul>
+        <li>Everything in Pro</li>
+        <li>Direct coach chat</li>
+        <li>Custom workouts</li>
+        <li>Custom meal plans</li>
+      </ul>
+      <a class="btn" href="#">Join Elite</a>
+    </div>
   </div>
-</section>
-
-<section class="cta">
-  <h2>Start Your Transformation Today</h2>
-  <p class="muted">Join VANTA FIT™ and take control of your fitness.</p>
-  <a href="signup.html">Start Free Trial</a>
 </section>
 
 <footer>
