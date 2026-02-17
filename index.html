@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>VANTA FIT™</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<title>VANTA FIT™ — Fitness Platform</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <style>
 :root{
@@ -21,15 +21,16 @@ body{
   font-family:system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
 }
 nav{
-  position:sticky;top:0;z-index:999;
+  position:sticky;top:0;z-index:9999;
   display:flex;justify-content:space-between;align-items:center;
   padding:20px 24px;
-  background:#000;
+  background:var(--bg);
   border-bottom:1px solid var(--border);
 }
-nav a, nav button{
+.brand{font-weight:800;letter-spacing:.12em}
+.nav-actions button,.nav-actions a{
   margin-left:10px;
-  padding:8px 16px;
+  padding:10px 18px;
   border:1px solid #fff;
   background:transparent;
   color:#fff;
@@ -37,12 +38,39 @@ nav a, nav button{
   font-weight:600;
   cursor:pointer;
 }
-nav a:hover, nav button:hover{background:#fff;color:#000}
+.nav-actions button:hover,.nav-actions a:hover{
+  background:#fff;color:#000;
+}
 
-section{max-width:1200px;margin:auto;padding:80px 24px}
-.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
-.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.container{max-width:1200px;margin:auto;padding:80px 24px}
+.hero{text-align:center}
+.hero h1{font-size:clamp(2.8rem,6vw,4rem)}
+.hero p{color:var(--muted);max-width:720px;margin:auto}
 
+/* BEFORE / AFTER */
+.before-after{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+  margin-top:60px;
+}
+.before-after img{
+  width:100%;
+  border:1px solid var(--border);
+}
+.statement{
+  text-align:center;
+  font-weight:800;
+  margin-top:10px;
+}
+
+/* FEATURES */
+.features{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:24px;
+  margin-top:80px;
+}
 .card{
   background:var(--panel);
   border:1px solid var(--border);
@@ -50,27 +78,47 @@ section{max-width:1200px;margin:auto;padding:80px 24px}
 }
 .card img{
   width:100%;
-  display:block;
-  border:1px solid var(--border);
+  margin-bottom:14px;
 }
+.card a{
+  display:inline-block;
+  margin-top:12px;
+  padding:8px 18px;
+  border:1px solid #fff;
+  color:#fff;
+  text-decoration:none;
+}
+.card a:hover{background:#fff;color:#000}
 
+/* PRICING */
 .pricing{
+  margin-top:100px;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:24px;
-  margin-top:80px;
 }
 .price{
+  background:#000;
   border:2px solid #fff;
   padding:30px;
   text-align:center;
 }
+.price h3{margin-top:0}
+.price .amount{
+  font-size:2.4rem;
+  margin:10px 0;
+}
 
 footer{
-  border-top:1px solid var(--border);
   text-align:center;
   padding:40px;
   color:var(--muted);
+  border-top:1px solid var(--border);
+  margin-top:120px;
+}
+
+@media(max-width:768px){
+  .before-after{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -78,88 +126,82 @@ footer{
 <body>
 
 <nav>
-  <strong>VANTA FIT™</strong>
-  <div>
+  <div class="brand">VANTA FIT™</div>
+  <div class="nav-actions">
     <button onclick="ownerLogin()">Owner Login</button>
     <a href="login.html">User Login</a>
     <a href="signup.html">Get Started</a>
   </div>
 </nav>
 
-<section>
-  <h1>Train Smarter. Eat Cleaner. Track Everything.</h1>
-  <p>All-in-one fitness, nutrition, and coaching platform.</p>
+<section class="hero container">
+  <h1>Train Smarter.<br>Eat Cleaner.<br>Track Everything.</h1>
+  <p>One platform for nutrition, workouts, progress, and coaching.</p>
 
-  <!-- BEFORE / AFTER -->
-  <div class="grid2">
-    <img src="assets/img/vanta_1_before.png" alt="Before fitness transformation">
-    <img src="assets/img/vanta_2_after.png" alt="After fitness transformation">
-  </div>
-</section>
-
-<section>
-  <h2>Platform Features</h2>
-
-  <div class="grid3">
-    <div class="card">
-      <img src="assets/img/feature-meals-nutrition.jpg" alt="Meals & nutrition">
-      <h3>Meals & Nutrition</h3>
-      <p>Calories, carbs, meal planning, barcode scanning.</p>
-      <a href="meals.html">View Demo</a>
+  <div class="before-after">
+    <div>
+      <img src="assets/img/vanta_1_before.png" alt="Before transformation">
+      <div class="statement">DISCIPLINE BUILDS RESULTS</div>
     </div>
-
-    <div class="card">
-      <img src="assets/img/feature-workout-logger.jpg" alt="Workout logger">
-      <h3>Workout Logger</h3>
-      <p>Sets, reps, timers, structured workouts.</p>
-      <a href="workouts.html">View Demo</a>
-    </div>
-
-    <div class="card">
-      <img src="assets/img/feature-coach-chat.jpg" alt="Coach chat">
-      <h3>Coach Chat</h3>
-      <p>Real coaching and accountability.</p>
-      <a href="coach-chat.html">View Demo</a>
+    <div>
+      <img src="assets/img/vanta_2_after.png" alt="After transformation">
+      <div class="statement">CONSISTENCY CHANGES EVERYTHING</div>
     </div>
   </div>
 </section>
 
-<section>
-  <h2>Pricing</h2>
+<section class="container features">
+  <div class="card">
+    <img src="assets/img/feature-meals-nutrition.jpg">
+    <h3>Meals & Nutrition</h3>
+    <p>Calories, carbs, meal planning, barcode scanning.</p>
+    <a href="meals.html">View Demo</a>
+  </div>
 
-  <!-- ONLY PRICING SECTION -->
-  <div class="pricing">
-    <div class="price">
-      <h3>Starter</h3>
-      <h2>$19/mo</h2>
-      <p>Meals + workouts</p>
-    </div>
-    <div class="price">
-      <h3>Pro</h3>
-      <h2>$39/mo</h2>
-      <p>Everything + progress</p>
-    </div>
-    <div class="price">
-      <h3>Elite</h3>
-      <h2>$79/mo</h2>
-      <p>Coach + analytics</p>
-    </div>
+  <div class="card">
+    <img src="assets/img/feature-workout-logger.jpg">
+    <h3>Workout Logger</h3>
+    <p>Sets, reps, weight, timers.</p>
+    <a href="workouts.html">View Demo</a>
+  </div>
+
+  <div class="card">
+    <img src="assets/img/feature-coach-chat.jpg">
+    <h3>Coach Chat</h3>
+    <p>Real coaching, real accountability.</p>
+    <a href="coach-chat.html">View Demo</a>
+  </div>
+</section>
+
+<section class="container pricing">
+  <div class="price">
+    <h3>Starter</h3>
+    <div class="amount">$19/mo</div>
+    <p>Meal + workout tracking</p>
+  </div>
+  <div class="price">
+    <h3>Pro</h3>
+    <div class="amount">$39/mo</div>
+    <p>Everything + progress tracking</p>
+  </div>
+  <div class="price">
+    <h3>Elite</h3>
+    <div class="amount">$79/mo</div>
+    <p>Coach chat + full access</p>
   </div>
 </section>
 
 <footer>© 2026 VANTA FIT™</footer>
 
 <script>
-/* GLOBAL OWNER OVERRIDE */
 function ownerLogin(){
   localStorage.setItem("vantaUser","true");
   localStorage.setItem("vantaRole","owner");
   localStorage.setItem("vantaPlan","elite");
   localStorage.setItem("vantaOverride","true");
-  window.location.href = "dashboard.html";
+  window.location.href="dashboard.html";
 }
 </script>
 
 </body>
 </html>
-
