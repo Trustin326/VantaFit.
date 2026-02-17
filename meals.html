@@ -1,6 +1,251 @@
-<script src="js/auth.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>VANTA FIT™ — Meals</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<h1>Meals</h1>
+<style>
+:root {
+  --bg:#0a0a0a;
+  --panel:#141414;
+  --border:#222;
+  --text:#fff;
+  --muted:#9a9a9a;
+}
 
-<input placeholder="Log Meal">
-<button>Save Meal</button>
+* { box-sizing:border-box; }
+
+body {
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Inter",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* LAYOUT */
+.app {
+  display:grid;
+  grid-template-columns:260px 1fr;
+  min-height:100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  background:#070707;
+  border-right:1px solid var(--border);
+  padding:30px 20px;
+}
+
+.logo {
+  font-weight:800;
+  letter-spacing:.12em;
+  margin-bottom:40px;
+}
+
+.nav a {
+  display:block;
+  padding:12px 14px;
+  margin-bottom:8px;
+  color:var(--muted);
+  font-size:.95rem;
+}
+
+.nav a.active,
+.nav a:hover {
+  background:var(--panel);
+  color:var(--text);
+}
+
+/* MAIN */
+.main {
+  padding:40px;
+}
+
+.header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:40px;
+}
+
+.header h1 {
+  margin:0;
+}
+
+/* GRID */
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:24px;
+}
+
+/* CARD */
+.card {
+  background:var(--panel);
+  border:1px solid var(--border);
+  padding:24px;
+}
+
+.card h3 {
+  margin-top:0;
+  margin-bottom:12px;
+}
+
+.card p {
+  color:var(--muted);
+  font-size:.9rem;
+}
+
+/* BARCODE */
+.scanner {
+  height:180px;
+  border:2px dashed var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-size:.9rem;
+  color:var(--muted);
+}
+
+/* PROGRESS */
+.progress {
+  height:8px;
+  background:#222;
+  border-radius:10px;
+  overflow:hidden;
+  margin-top:8px;
+}
+
+.progress span {
+  display:block;
+  height:100%;
+  background:#fff;
+}
+
+/* MEAL LIST */
+.meal p {
+  margin:6px 0;
+}
+
+/* BUTTON */
+.btn {
+  display:inline-block;
+  margin-top:14px;
+  padding:10px 18px;
+  border:1px solid #fff;
+  font-size:.85rem;
+}
+
+.btn:hover {
+  background:#fff;
+  color:#000;
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="logo">VANTA FIT™</div>
+    <nav class="nav">
+      <a href="dashboard.html">Dashboard</a>
+      <a class="active" href="#">Meals</a>
+      <a href="#">Workouts</a>
+      <a href="#">Progress</a>
+      <a href="#">Goals</a>
+      <a href="#">Coach Chat</a>
+      <a href="#">Marketplace</a>
+      <a href="#">Settings</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <div class="header">
+      <h1>Meals & Nutrition</h1>
+      <div class="muted">Today</div>
+    </div>
+
+    <div class="grid">
+
+      <!-- BARCODE SCANNER -->
+      <div class="card">
+        <h3>Scan Food Label</h3>
+        <div class="scanner">
+          📷 Barcode Scanner<br>
+          (Camera Access Placeholder)
+        </div>
+        <p>Scan packaged foods to instantly log calories, carbs, protein, and fat.</p>
+        <a class="btn">Start Scan</a>
+      </div>
+
+      <!-- DAILY MACROS -->
+      <div class="card">
+        <h3>Daily Macros</h3>
+        <p>Calories: 1,420 / 2,000</p>
+        <div class="progress"><span style="width:71%"></span></div>
+
+        <p style="margin-top:12px;">Carbs: 132g / 180g</p>
+        <div class="progress"><span style="width:73%"></span></div>
+
+        <p style="margin-top:12px;">Protein: 98g / 150g</p>
+        <div class="progress"><span style="width:65%"></span></div>
+
+        <a class="btn">Adjust Goals</a>
+      </div>
+
+      <!-- MEALS LOGGED -->
+      <div class="card meal">
+        <h3>Meals Logged</h3>
+        <p>🍳 Breakfast — Oatmeal & Eggs</p>
+        <p>🥗 Lunch — Chicken Salad</p>
+        <p>🍎 Snack — Greek Yogurt</p>
+        <p>🍽 Dinner — Not Logged</p>
+        <a class="btn">Log Meal</a>
+      </div>
+
+      <!-- WEEKLY PLANNER -->
+      <div class="card">
+        <h3>Weekly Meal Planner</h3>
+        <p>Mon — Lean Protein + Greens</p>
+        <p>Tue — Low Carb Focus</p>
+        <p>Wed — Balanced Macros</p>
+        <p>Thu — High Protein</p>
+        <p>Fri — Flexible Meal</p>
+        <p>Sat — Clean Cheat</p>
+        <p>Sun — Reset Day</p>
+        <a class="btn">Edit Plan</a>
+      </div>
+
+      <!-- PREMIUM PLANS -->
+      <div class="card">
+        <h3>Premium Meal Plans</h3>
+        <p>🔥 Fat Loss Accelerator</p>
+        <p>💪 Muscle Gain Blueprint</p>
+        <p>🥗 Plant-Based Performance</p>
+        <p>🥩 Low-Carb Elite</p>
+        <a class="btn">Browse Plans</a>
+      </div>
+
+      <!-- COACH NOTES -->
+      <div class="card">
+        <h3>Coach Notes</h3>
+        <p>
+          “Increase protein slightly at breakfast.
+          Keep carbs earlier in the day this week.”
+        </p>
+        <a class="btn">Message Coach</a>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+</body>
+</html>
