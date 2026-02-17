@@ -1,0 +1,21 @@
+<script src="js/auth.js"></script>
+
+<h1>DASHBOARD</h1>
+
+<div>
+<button onclick="location.href='meals.html'">Meals</button>
+<button onclick="location.href='workouts.html'">Workouts</button>
+<button onclick="location.href='progress.html'">Progress</button>
+<button onclick="location.href='coach-chat.html'">Coach Chat</button>
+</div>
+
+<div id="analytics" style="display:none">
+<h2>Owner Analytics</h2>
+<p>Revenue / Usage metrics</p>
+</div>
+
+<script>
+if(isOwner()){
+ document.getElementById("analytics").style.display="block";
+}
+</script>
