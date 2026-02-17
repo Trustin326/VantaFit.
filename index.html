@@ -7,36 +7,70 @@
 
 <style>
 :root{
-  --bg:#0a0a0a;--panel:#141414;--border:#222;
-  --text:#fff;--muted:#9a9a9a;--accent:#fff;
+  --bg:#0a0a0a;
+  --panel:#141414;
+  --border:#222;
+  --text:#fff;
+  --muted:#9a9a9a;
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui}
-button{cursor:pointer}
-
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+}
 nav{
   position:sticky;top:0;z-index:999;
-  display:flex;justify-content:space-between;
-  padding:18px 24px;border-bottom:1px solid var(--border);
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px 24px;
   background:#000;
+  border-bottom:1px solid var(--border);
 }
-nav button{border:1px solid #fff;background:transparent;color:#fff;padding:8px 14px}
+nav a, nav button{
+  margin-left:10px;
+  padding:8px 16px;
+  border:1px solid #fff;
+  background:transparent;
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  cursor:pointer;
+}
+nav a:hover, nav button:hover{background:#fff;color:#000}
 
-section{padding:80px 24px;max-width:1200px;margin:auto}
-.hidden{display:none}
+section{max-width:1200px;margin:auto;padding:80px 24px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
 
-.grid{display:grid;gap:24px}
-.grid-2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
-.grid-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{
+  background:var(--panel);
+  border:1px solid var(--border);
+  padding:24px;
+}
+.card img{
+  width:100%;
+  display:block;
+  border:1px solid var(--border);
+}
 
-.card{background:var(--panel);border:1px solid var(--border);padding:24px}
-.card img{width:100%;border:1px solid var(--border)}
+.pricing{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:24px;
+  margin-top:80px;
+}
+.price{
+  border:2px solid #fff;
+  padding:30px;
+  text-align:center;
+}
 
-.price{border:2px solid #fff;text-align:center;padding:30px}
-.price h2{margin:0}
-
-input,textarea{
-  width:100%;padding:10px;background:#000;border:1px solid #333;color:#fff
+footer{
+  border-top:1px solid var(--border);
+  text-align:center;
+  padding:40px;
+  color:var(--muted);
 }
 </style>
 </head>
@@ -46,65 +80,86 @@ input,textarea{
 <nav>
   <strong>VANTA FIT™</strong>
   <div>
-    <button onclick="loginOwner()">Owner Login</button>
-    <button onclick="loginDemo()">Demo Buyer</button>
+    <button onclick="ownerLogin()">Owner Login</button>
+    <a href="login.html">User Login</a>
+    <a href="signup.html">Get Started</a>
   </div>
 </nav>
 
-<!-- LANDING -->
-<section id="landing">
+<section>
   <h1>Train Smarter. Eat Cleaner. Track Everything.</h1>
+  <p>All-in-one fitness, nutrition, and coaching platform.</p>
 
-  <div class="grid grid-2">
-    <img src="https://raw.githubusercontent.com/Trustin326/Vanta-Fit/main/assets/img/vanta_1_before.png">
-    <img src="https://raw.githubusercontent.com/Trustin326/Vanta-Fit/main/assets/img/vanta_2_after.png">
+  <!-- BEFORE / AFTER -->
+  <div class="grid2">
+    <img src="assets/img/vanta_1_before.png" alt="Before fitness transformation">
+    <img src="assets/img/vanta_2_after.png" alt="After fitness transformation">
   </div>
+</section>
 
-  <h2>Features</h2>
-  <div class="grid grid-3">
-    <img src="https://raw.githubusercontent.com/Trustin326/Vanta-Fit/main/assets/img/feature-meals-nutrition.jpg">
-    <img src="https://raw.githubusercontent.com/Trustin326/Vanta-Fit/main/assets/img/feature-workout-logger.jpg">
-    <img src="https://raw.githubusercontent.com/Trustin326/Vanta-Fit/main/assets/img/feature-coach-chat.jpg">
+<section>
+  <h2>Platform Features</h2>
+
+  <div class="grid3">
+    <div class="card">
+      <img src="assets/img/feature-meals-nutrition.jpg" alt="Meals & nutrition">
+      <h3>Meals & Nutrition</h3>
+      <p>Calories, carbs, meal planning, barcode scanning.</p>
+      <a href="meals.html">View Demo</a>
+    </div>
+
+    <div class="card">
+      <img src="assets/img/feature-workout-logger.jpg" alt="Workout logger">
+      <h3>Workout Logger</h3>
+      <p>Sets, reps, timers, structured workouts.</p>
+      <a href="workouts.html">View Demo</a>
+    </div>
+
+    <div class="card">
+      <img src="assets/img/feature-coach-chat.jpg" alt="Coach chat">
+      <h3>Coach Chat</h3>
+      <p>Real coaching and accountability.</p>
+      <a href="coach-chat.html">View Demo</a>
+    </div>
   </div>
+</section>
 
+<section>
   <h2>Pricing</h2>
-  <div class="grid grid-3">
-    <div class="price"><h2>$19</h2><p>Starter</p><button>Stripe Link</button></div>
-    <div class="price"><h2>$39</h2><p>Pro</p><button>Stripe Link</button></div>
-    <div class="price"><h2>$79</h2><p>Elite</p><button>Stripe Link</button></div>
+
+  <!-- ONLY PRICING SECTION -->
+  <div class="pricing">
+    <div class="price">
+      <h3>Starter</h3>
+      <h2>$19/mo</h2>
+      <p>Meals + workouts</p>
+    </div>
+    <div class="price">
+      <h3>Pro</h3>
+      <h2>$39/mo</h2>
+      <p>Everything + progress</p>
+    </div>
+    <div class="price">
+      <h3>Elite</h3>
+      <h2>$79/mo</h2>
+      <p>Coach + analytics</p>
+    </div>
   </div>
 </section>
 
-<!-- APP -->
-<section id="app" class="hidden">
-  <h2 id="roleLabel"></h2>
-
-  <div class="grid grid-3">
-    <div class="card"><h3>Dashboard</h3><p>Stats + goals</p></div>
-    <div class="card"><h3>Meals</h3><input placeholder="Log meal"></div>
-    <div class="card"><h3>Workouts</h3><input placeholder="Log workout"></div>
-    <div class="card"><h3>Coach Chat</h3><textarea placeholder="Message coach"></textarea></div>
-    <div class="card"><h3>Progress</h3><p>Photos + charts</p></div>
-    <div class="card" id="analytics" class="hidden"><h3>Analytics</h3><p>Owner-only stats</p></div>
-  </div>
-</section>
+<footer>© 2026 VANTA FIT™</footer>
 
 <script>
-function loginOwner(){
-  localStorage.setItem("role","owner");
-  loadApp();
-}
-function loginDemo(){
-  localStorage.setItem("role","demo");
-  loadApp();
-}
-function loadApp(){
-  landing.classList.add("hidden");
-  app.classList.remove("hidden");
-  roleLabel.innerText = localStorage.role === "owner" ? "OWNER DASHBOARD" : "DEMO BUYER";
-  if(localStorage.role === "owner") analytics.style.display="block";
+/* GLOBAL OWNER OVERRIDE */
+function ownerLogin(){
+  localStorage.setItem("vantaUser","true");
+  localStorage.setItem("vantaRole","owner");
+  localStorage.setItem("vantaPlan","elite");
+  localStorage.setItem("vantaOverride","true");
+  window.location.href = "dashboard.html";
 }
 </script>
 
 </body>
 </html>
+
