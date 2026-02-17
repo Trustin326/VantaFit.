@@ -1,88 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>VANTA FIT™ — All-In-One Fitness Platform</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>VANTA FIT™ — Train Smarter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<style>
-:root{
-  --bg:#0a0a0a;
-  --panel:#141414;
-  --border:#222;
-  --text:#fff;
-  --muted:#9a9a9a;
-}
-*{box-sizing:border-box}
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
-}
-nav{
-  position:sticky;top:0;z-index:9999;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:20px 24px;
-  background:var(--bg);
-  border-bottom:1px solid var(--border);
-}
-.brand{font-weight:800;letter-spacing:.12em}
-.nav-actions button{
-  margin-left:12px;
-  padding:10px 22px;
-  border:1px solid #fff;
-  background:transparent;
-  color:#fff;
-  font-weight:600;
-  cursor:pointer;
-}
-.nav-actions button:hover{background:#fff;color:#000}
+  <style>
+    :root {
+      --bg:#0a0a0a;
+      --panel:#141414;
+      --border:#222;
+      --text:#ffffff;
+      --muted:#9a9a9a;
+    }
 
-.container{max-width:1200px;margin:auto;padding:80px 24px}
-.hero{text-align:center}
-.hero h1{font-size:clamp(2.6rem,6vw,4rem)}
-.hero p{color:var(--muted);max-width:720px;margin:auto}
+    * { box-sizing:border-box; }
 
-.features{
-  margin-top:80px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:24px;
-}
-.card{
-  background:var(--panel);
-  border:1px solid var(--border);
-  padding:28px;
-}
-.preview{
-  height:160px;
-  background:#000;
-  border:1px dashed #333;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:700;
-  letter-spacing:.08em;
-}
-.card a{
-  display:inline-block;
-  margin-top:14px;
-  padding:8px 18px;
-  border:1px solid #fff;
-  color:#fff;
-  text-decoration:none;
-}
-.card a:hover{background:#fff;color:#000}
+    body {
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Inter",system-ui,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
 
-footer{
-  text-align:center;
-  padding:40px;
-  color:var(--muted);
-  border-top:1px solid var(--border);
-  margin-top:120px;
-}
-</style>
+    a { text-decoration:none; color:inherit; }
+
+    .container {
+      max-width:1200px;
+      margin:auto;
+      padding:80px 24px;
+    }
+
+    /* NAV */
+    nav {
+      border-bottom:1px solid var(--border);
+      padding:20px 24px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .brand {
+      font-weight:800;
+      letter-spacing:.12em;
+    }
+
+    .nav-actions a {
+      margin-left:16px;
+      padding:10px 22px;
+      border:1px solid #fff;
+      font-size:.85rem;
+    }
+
+    .nav-actions a:hover {
+      background:#fff;
+      color:#000;
+    }
+
+    /* HERO */
+    .hero {
+      text-align:center;
+      padding-top:60px;
+    }
+
+    .hero h1 {
+      font-size:clamp(2.8rem,6vw,4rem);
+      margin-bottom:16px;
+      letter-spacing:-.02em;
+    }
+
+    .hero p {
+      max-width:720px;
+      margin:0 auto 40px;
+      color:var(--muted);
+      font-size:1.15rem;
+    }
+
+    /* BEFORE / AFTER */
+    .before-after {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+      margin-top:60px;
+    }
+
+    .image-box {
+      height:360px;
+      background:#141414;
+      border:2px dashed var(--border);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .statement {
+      text-align:center;
+      font-weight:800;
+      font-size:1.6rem;
+      letter-spacing:.05em;
+      margin-top:16px;
+    }
+
+    /* FEATURES */
+    .section-title {
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .section-title h2 {
+      font-size:2.4rem;
+      margin-bottom:10px;
+    }
+
+    .section-title p {
+      color:var(--muted);
+      max-width:640px;
+      margin:auto;
+    }
+
+    .features {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:24px;
+    }
+
+    .card {
+      background:var(--panel);
+      border:1px solid var(--border);
+      padding:30px;
+    }
+
+    .card h3 {
+      margin-top:0;
+      margin-bottom:10px;
+    }
+
+    .card p {
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    /* IMAGE SECTIONS */
+    .image-section {
+      margin-top:80px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+      align-items:center;
+    }
+
+    .image-section.reverse {
+      grid-template-columns:1fr 1fr;
+      direction:rtl;
+    }
+
+    .image-section.reverse > * {
+      direction:ltr;
+    }
+
+    .image-large {
+      height:300px;
+      background:#141414;
+      border:2px dashed var(--border);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--muted);
+    }
+
+    /* CTA */
+    .cta {
+      text-align:center;
+      margin-top:120px;
+      padding:80px 24px;
+      border-top:1px solid var(--border);
+    }
+
+    .cta a {
+      display:inline-block;
+      margin-top:24px;
+      padding:16px 36px;
+      border:1px solid #fff;
+      font-weight:700;
+      letter-spacing:.08em;
+    }
+
+    .cta a:hover {
+      background:#fff;
+      color:#000;
+    }
+
+    footer {
+      text-align:center;
+      padding:40px 24px;
+      color:var(--muted);
+      font-size:.85rem;
+      border-top:1px solid var(--border);
+    }
+
+    @media(max-width:768px){
+      .before-after,
+      .image-section {
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -90,65 +215,103 @@ footer{
 <nav>
   <div class="brand">VANTA FIT™</div>
   <div class="nav-actions">
-    <button onclick="ownerLogin()">Owner Login</button>
+    <a href="login.html">Login</a>
+    <a href="signup.html">Get Started</a>
   </div>
 </nav>
 
 <section class="hero container">
-  <h1>Train Smarter. Eat Cleaner. Track Everything.</h1>
-  <p>Explore every feature live — workouts, meals, progress, and coaching.</p>
+  <h1>Train Smarter.<br>Eat Cleaner.<br>Track Everything.</h1>
+  <p>
+    A premium fitness & nutrition platform designed for real results —
+    personalized workouts, smart meal planning, progress tracking,
+    and direct coach access.
+  </p>
+
+  <!-- BEFORE / AFTER IMAGES -->
+  <div class="before-after">
+    <div>
+      <div class="image-box">Before Image</div>
+      <div class="statement">DISCIPLINE BUILDS RESULTS</div>
+    </div>
+    <div>
+      <div class="image-box">After Image</div>
+      <div class="statement">CONSISTENCY CHANGES EVERYTHING</div>
+    </div>
+  </div>
 </section>
 
-<section class="container features">
-
-  <div class="card">
-    <div class="preview">MEALS & NUTRITION</div>
-    <h3>Meal Planning & Barcode Scanning</h3>
-    <p>Calories, carbs, macro tracking, and food label scanning.</p>
-    <a href="meals.html">Open Meals App</a>
+<section class="container">
+  <div class="section-title">
+    <h2>Everything You Need — One Platform</h2>
+    <p>Replace multiple apps with one elite fitness system.</p>
   </div>
 
-  <div class="card">
-    <div class="preview">WORKOUT LOGGER</div>
-    <h3>Workout Logger</h3>
-    <p>Sets, reps, weights, timers, and workout plans.</p>
-    <a href="workouts.html">Open Workouts App</a>
+  <div class="features">
+    <div class="card">
+      <h3>Smart Nutrition</h3>
+      <p>Track calories & carbs, scan food labels, and follow goal-based meal plans.</p>
+    </div>
+    <div class="card">
+      <h3>Workout Logging</h3>
+      <p>Log sets, reps, weight, and track performance over time.</p>
+    </div>
+    <div class="card">
+      <h3>Progress Tracking</h3>
+      <p>Upload progress photos, monitor metrics, and visualize results.</p>
+    </div>
+    <div class="card">
+      <h3>Coach Access</h3>
+      <p>Message your coach directly for accountability and guidance.</p>
+    </div>
   </div>
-
-  <div class="card">
-    <div class="preview">PROGRESS TRACKING</div>
-    <h3>Progress & Photos</h3>
-    <p>Charts, milestones, and visual progress tracking.</p>
-    <a href="progress.html">Open Progress App</a>
-  </div>
-
-  <div class="card">
-    <div class="preview">COACH CHAT</div>
-    <h3>Coach Messaging</h3>
-    <p>Direct messaging and accountability support.</p>
-    <a href="coach-chat.html">Open Coach Chat</a>
-  </div>
-
-  <div class="card">
-    <div class="preview">DASHBOARD</div>
-    <h3>Dashboard Overview</h3>
-    <p>Stats, streaks, achievements, and goals.</p>
-    <a href="dashboard.html">Open Dashboard</a>
-  </div>
-
 </section>
 
-<footer>© 2026 VANTA FIT™</footer>
+<!-- IMAGE SLOT 3 -->
+<section class="container image-section">
+  <div class="image-large">Meals & Nutrition Screenshot</div>
+  <div>
+    <h2>Fuel Your Body With Precision</h2>
+    <p class="muted">
+      Personalized meal planning, barcode scanning, and macro tracking
+      designed around your goals.
+    </p>
+  </div>
+</section>
 
-<script>
-function ownerLogin(){
-  localStorage.setItem("vantaUser","true");
-  localStorage.setItem("vantaRole","owner");
-  localStorage.setItem("vantaPlan","elite");
-  localStorage.setItem("vantaOverride","true");
-  alert("Owner mode enabled — all apps unlocked");
-}
-</script>
+<!-- IMAGE SLOT 4 -->
+<section class="container image-section reverse">
+  <div class="image-large">Workout Logger Screenshot</div>
+  <div>
+    <h2>Train With Purpose</h2>
+    <p class="muted">
+      Structured workouts, real tracking, and visible progression
+      that keeps you consistent.
+    </p>
+  </div>
+</section>
+
+<!-- IMAGE SLOT 5 -->
+<section class="container image-section">
+  <div class="image-large">Coach Chat Screenshot</div>
+  <div>
+    <h2>Real Coaching. Real Accountability.</h2>
+    <p class="muted">
+      Direct access to your coach for feedback, motivation,
+      and personalized adjustments.
+    </p>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Start Your Transformation Today</h2>
+  <p class="muted">Join VANTA FIT™ and take control of your fitness.</p>
+  <a href="signup.html">Start Free Trial</a>
+</section>
+
+<footer>
+  © 2026 VANTA FIT™ — All Rights Reserved
+</footer>
 
 </body>
 </html>
