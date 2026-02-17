@@ -1,0 +1,19 @@
+<script src="js/auth.js"></script>
+
+<h2>Login</h2>
+
+<button onclick="owner()">Owner</button>
+<button onclick="demo()">Demo Buyer</button>
+
+<script>
+function owner(){
+ localStorage.setItem("vantaRole","owner");
+ localStorage.setItem("vantaPlan","elite");
+ location.href="dashboard.html";
+}
+function demo(){
+ localStorage.setItem("vantaRole","buyer");
+ localStorage.setItem("vantaPlan","demo");
+ location.href="dashboard.html";
+}
+</script>
